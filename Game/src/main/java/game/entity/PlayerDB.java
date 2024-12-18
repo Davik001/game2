@@ -2,23 +2,17 @@ package game.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "player")
+//@Table(name = "player")
 public class PlayerDB {
 
     @Id
-    @Column(name = "name")
     String name;
 
-    @Column(name = "health")
     int health;
-
-    @Column(name = "attack")
     int attack;
-
-    @Column(name = "defense")
     int defense;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable = false)
     LocationDB currentLocation;
 

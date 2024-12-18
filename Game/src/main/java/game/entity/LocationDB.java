@@ -3,14 +3,12 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "location")
+//@Table(name = "location")
 public class LocationDB {
 
     @Id
-    @Column(name = "name", unique = true, nullable = false, columnDefinition = "Unknown location..")
+    @Column(unique = true, nullable = false)
     String name;
-
-    @Column(name = "description")
     String description;
 
     public LocationDB() {}
@@ -44,5 +42,3 @@ public class LocationDB {
         this.description = description;
     }
 }
-
-

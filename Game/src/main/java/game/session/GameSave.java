@@ -10,14 +10,15 @@ public class GameSave {
     public void saveGame(Player p) {
         PlayerDB playerDB = PlayerMapper.mapToPlayerDB(p);
 
+        playerDB.setName("Player228");
         try(Session session = HibernateRunner.getSessionFactory().openSession()){
             Transaction tx = session.beginTransaction();
             session.saveOrUpdate(playerDB);
             tx.commit();
         } catch (Exception e) {
-        System.err.println("Ошибка при сохранении игры: " + e.getMessage());
-        e.printStackTrace();
-    }
+            System.err.println("Ошибка при сохранении игры: " + e.getMessage());
+            e.printStackTrace();
+        }
 
     }
 }

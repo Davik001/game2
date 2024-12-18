@@ -1,14 +1,14 @@
 package game.character;
 
-
 import game.area.Location;
 import game.strategy.MonsterAttackStrategy;
-
 import java.util.Scanner;
 
 public class Player extends Character {
     private Scanner scanner = new Scanner(System.in);
     private Location currentLocation = new Location();
+    private String name;
+
 
     public Player(int h, int a, int d){
         super(h, a, d); // используем конструктор родительского класса
@@ -36,9 +36,12 @@ public class Player extends Character {
 
     @Override
     public String getName(){
-        return "Игрок";
+        return name;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
 
     public void chooseLoc() {
 

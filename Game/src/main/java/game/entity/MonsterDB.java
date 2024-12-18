@@ -8,11 +8,8 @@ public class MonsterDB {
     @Column(unique=true, nullable=false)
     String name;
 
-    @Column
     int attack;
-    @Column
     int defense;
-    @Column
     int health;
 
     @ManyToOne
@@ -57,6 +54,21 @@ public class MonsterDB {
 
     public void setLocation(LocationDB location) {
         this.location = location;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MonsterDB monsterDB = (MonsterDB) o;
+
+        return name.equals(monsterDB.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 
 }

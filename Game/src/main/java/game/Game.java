@@ -11,7 +11,7 @@ public class Game {
 
     public static void main(String[] args) {
 
-         Player player = new Player(100, 100, 5);
+        Player player = new Player(100, 100, 5);
         player.setStrategy(new PlayerAttackStrategy());
 
         generateLocations(player);
@@ -64,7 +64,7 @@ public class Game {
                     gameSave.saveGame(player);
                     iterator.remove();
 
-                 //   gameSave.saveGame(player);
+                    //   gameSave.saveGame(player);
 
                     System.out.println("Продолжить бой или сохраниться ? \n1: Продолжить \n2: Сохраниться");
                     Scanner scanner = new Scanner(System.in);
