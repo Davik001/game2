@@ -1,0 +1,52 @@
+package game.entity;
+import jakarta.persistence.*;
+import java.util.Set;
+
+@Entity
+//@Table(name = "location")
+public class LocationDB {
+
+    @Id
+    @Column(unique = true, nullable = false)
+    String name;
+    String description;
+
+    public LocationDB() {}
+
+    public LocationDB(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "location_link",
+            joinColumns = @JoinColumn(name = "from_location", referencedColumnName = "name"),
+            inverseJoinColumns = @JoinColumn(name = "to_location", referencedColumnName = "name")
+    )
+    Set<LocationDB> locations;
+
+    // геттеры
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLocations(Set<LocationDB> locations) {
+        this.locations = locations;
+    }
+
+    public Set<LocationDB> getLocations() {
+        return locations;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}
